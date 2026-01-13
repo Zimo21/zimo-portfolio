@@ -1,6 +1,7 @@
 import { Section } from "@/components/Section";
 import { Card } from "@/components/Card";
-import { publication } from "@/lib/site-data";
+import Link from "next/link";
+import { site, projects, experience, publication } from "@/lib/site-data";
 
 export default function PublicationsPage() {
   return (
@@ -13,7 +14,12 @@ export default function PublicationsPage() {
             {publication.authors.join(", ")} · {publication.venue} · {publication.year}
           </p>
           <p className="text-sm text-zinc-600">
-            Add a PDF / DOI / arXiv link when available.
+            <Link
+                  href={site.links.publication}
+                  className="rounded-full border border-zinc-200 px-4 py-2 text-sm no-underline hover:bg-zinc-50"
+                >
+                  Download PDF
+                </Link>
           </p>
         </div>
       </Card>
